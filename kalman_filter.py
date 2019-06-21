@@ -31,6 +31,7 @@ class Kalman_Filter:
 		K = self.P.dot(self.H.T).dot(np.linalg.pinv(S))				# Kalman Gain
 		self.x = self.x + K.dot(y)
 		self.P = (np.identity(len(self.x)) - (K.dot(self.H))).dot(self.P)
+		return self.x
 
 	def get_state():
 		return self.x
